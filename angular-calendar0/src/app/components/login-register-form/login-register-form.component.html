@@ -1,0 +1,51 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card style="padding: 40px 70px 50px; width: 600px">
+        <mat-tab-group>
+            <mat-tab label="Login">
+                <mat-form-field style="appearance:fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput [formControl]="user_name" required/>
+                </mat-form-field><br />
+                <mat-form-field style="appearance:fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput [formControl]="user_password" required />
+                </mat-form-field><br />
+                <button mat-raised-button color="primary" (click)="login()">Login</button>
+            </mat-tab>
+            <mat-tab label="Register">
+                <mat-form-field style="appearance:fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput [formControl]="email" />
+                </mat-form-field><br />
+                <mat-form-field style="appearance:fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput [formControl]="user_password" />
+                </mat-form-field><br />
+                <mat-form-field style="appearance:fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput [formControl]="first_name" />
+                </mat-form-field><br />
+                <mat-form-field style="appearance:fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [formControl]="last_name"/>
+                </mat-form-field><br />
+                <mat-form-field style="appearance:fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput [formControl]="user_name" />
+                </mat-form-field><br />
+                <mat-form-field appearance="fill">
+                    <mat-label>Account Type</mat-label>
+                    <mat-select [formControl]="user_type">
+                      <mat-option *ngFor="let acct of accounts" [value]="acct.value">
+                        {{acct.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                <!--similar to the login button, hide Register until the appropriate fields are filled; 
+                    likely use and *ngIf related to the designated fields-->
+                <button mat-raised-button color="primary" (click)="register()">Register</button>
+            </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+<div>
+

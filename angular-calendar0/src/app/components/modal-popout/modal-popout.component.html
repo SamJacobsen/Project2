@@ -1,0 +1,21 @@
+
+<!-- <button class="btn btn-danger" (click)="triggerModal(modalData)">Open Modal</button> -->
+  <ng-template #modalData let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title" *ngIf="!eventClicked">Events</h4>
+      <h4 *ngIf="eventClicked">Event</h4>
+      <!-- <span type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> -->
+      <button mat-raised-button (click)="deleteEvent()" (click)="modal.dismiss('')">Delete</button>
+      <button mat-raised-button *ngIf="eventClicked" (click)="updateSheet()" (click)="modal.dismiss('')">Update</button>
+    </div>
+    <div class="modal-body">
+      <div *ngFor="let event of events">
+        <p>{{event.title}}</p>
+        <p *ngIf="eventClicked">Desc: {{event.description}}</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button mat-raised-button color="primary" type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>
+

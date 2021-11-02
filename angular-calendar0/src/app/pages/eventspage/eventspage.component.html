@@ -1,0 +1,15 @@
+
+
+<app-calendar-views (dateClicked)="daySelected($event)" (singleEventClicked)="eventSelected($event)"></app-calendar-views>
+<app-modal-popout #modal [events]="events" [eventClicked]="eventClicked"></app-modal-popout>
+<div style="display: flex; justify-content: space-between;">
+      <div>
+            <app-add-event-sheet></app-add-event-sheet>
+            <span *ngIf="sessionData.user_type === 'MANAGER'">
+                  <button mat-raised-button color="primary">Create Group</button>
+                  <button mat-raised-button color="primary">Create Group Event</button>
+                  <button mat-raised-button color="primary">Add User to Group</button>
+            </span>
+      </div>
+      <button mat-raised-button (click)="logout()" color="primary">Logout</button>
+</div>

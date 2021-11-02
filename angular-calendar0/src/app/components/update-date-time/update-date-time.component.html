@@ -1,0 +1,37 @@
+<mat-card>
+    <div>
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerFrom" [(ngModel)]="start">
+        
+            <mat-datepicker-toggle matSuffix [for]="$any(pickerFrom)"></mat-datepicker-toggle>
+        
+            <ngx-mat-datetime-picker #pickerFrom [enableMeridian]="true"></ngx-mat-datetime-picker>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerTo" [(ngModel)]="end"
+              [min]="start">
+        
+            <mat-datepicker-toggle matSuffix [for]="$any(pickerTo)"></mat-datepicker-toggle>
+        
+            <ngx-mat-datetime-picker #pickerTo [enableMeridian]="true"></ngx-mat-datetime-picker>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>{{ title }}</mat-label>
+            <input matInput [(ngModel)]="title">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>{{ description }}</mat-label>
+            <input matInput [(ngModel)]="description">
+        </mat-form-field> <br />
+        <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select [(ngModel)]="status">
+              <mat-option *ngFor="let stat of statusValues" [value]="stat.value">
+                {{stat.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+</mat-card>
+  <button mat-raised-button color="primary" (click)="updateTask()">Update</button>

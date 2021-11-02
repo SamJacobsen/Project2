@@ -1,0 +1,31 @@
+<mat-card>
+    <div>
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="Beginning date & time" [(ngModel)]="start">
+        
+            <mat-datepicker-toggle matSuffix [for]="$any(pickerFrom)"></mat-datepicker-toggle>
+        
+            <ngx-mat-datetime-picker #pickerFrom [enableMeridian]="true"></ngx-mat-datetime-picker>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerTo" placeholder="Ending date & time" [(ngModel)]="end"
+              [min]="start">
+        
+            <mat-datepicker-toggle matSuffix [for]="$any(pickerTo)"></mat-datepicker-toggle>
+        
+            <ngx-mat-datetime-picker #pickerTo [enableMeridian]="true"></ngx-mat-datetime-picker>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Event Title</mat-label>
+            <input matInput placeholder="ipso facto" [(ngModel)]="title">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Event Description</mat-label>
+            <input matInput placeholder="exempli gratia" [(ngModel)]="description">
+        </mat-form-field>
+    </div>
+</mat-card>
+  <button mat-raised-button color="primary"(click)="createTask()">Save</button>
+  <!-- <button (click)="sessionLog()">Click me!</button> -->
+  
